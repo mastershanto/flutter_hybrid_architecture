@@ -3,6 +3,7 @@ import '../../../domain/entities/todo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../blocs/todo/todo_bloc.dart';
 import '../blocs/todo/todo_event.dart';
+import '../screens/edit_todo_screen.dart';
 
 /// Widget to display a single todo item
 class TodoTile extends StatelessWidget {
@@ -29,11 +30,30 @@ class TodoTile extends StatelessWidget {
           ),
         ),
         subtitle: todo.description != null ? Text(todo.description!) : null,
-        trailing: IconButton(
-          icon: const Icon(Icons.delete, color: Colors.red),
-          onPressed: () {
-            context.read<TodoBloc>().add(TodoEvent.deleteTodo(id: todo.id));
-          },
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconButton(
+              icon: const Icon(Icons.edit, color: Colors.blue),
+              onPressed: () async {
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => BlocProvider.value(
+                      value: context.read<TodoBloc>(),
+                      child: EditTodoScreen(todo: todo),
+                    ),
+                  ),
+                );
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.delete, color: Colors.red),
+              onPressed: () {
+                context.read<TodoBloc>().add(TodoEvent.deleteTodo(id: todo.id));
+              },
+            ),
+          ],
         ),
       ),
     );
