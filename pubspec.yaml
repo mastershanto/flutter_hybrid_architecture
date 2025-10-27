@@ -48,6 +48,10 @@ dependencies:
   path_provider: ^2.1.5
   path: ^1.9.0
   
+  # HTTP Client
+  dio: ^5.7.0
+  pretty_dio_logger: ^1.4.0
+  connectivity_plus: ^6.1.0
   
   # Code Generation
   freezed_annotation: ^2.4.4
