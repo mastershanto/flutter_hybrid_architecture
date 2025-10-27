@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../../domain/entities/todo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../blocs/todo/todo_bloc.dart';
 import '../blocs/todo/todo_event.dart';
-import '../screens/edit_todo_screen.dart';
+import '../../core/router/app_routes.dart';
 
 /// Widget to display a single todo item
 class TodoTile extends StatelessWidget {
@@ -35,16 +36,8 @@ class TodoTile extends StatelessWidget {
           children: [
             IconButton(
               icon: const Icon(Icons.edit, color: Colors.blue),
-              onPressed: () async {
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => BlocProvider.value(
-                      value: context.read<TodoBloc>(),
-                      child: EditTodoScreen(todo: todo),
-                    ),
-                  ),
-                );
+              onPressed: () {
+                context.pushNamed(AppRoutes.editTodoName, extra: todo);
               },
             ),
             IconButton(

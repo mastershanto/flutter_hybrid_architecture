@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import '../blocs/todo/todo_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../blocs/todo/todo_event.dart';
+import '../../di.dart';
 
 /// Screen for adding a new todo
-class AddTodoScreen extends StatefulWidget {
+class AddTodoScreen extends ConsumerStatefulWidget {
   const AddTodoScreen({super.key});
 
   @override
-  State<AddTodoScreen> createState() => _AddTodoScreenState();
+  ConsumerState<AddTodoScreen> createState() => _AddTodoScreenState();
 }
 
-class _AddTodoScreenState extends State<AddTodoScreen> {
+class _AddTodoScreenState extends ConsumerState<AddTodoScreen> {
   final _formKey = GlobalKey<FormState>();
   final _titleController = TextEditingController();
   final _descriptionController = TextEditingController();
@@ -25,15 +26,17 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
 
   void _submitTodo() {
     if (_formKey.currentState!.validate()) {
-      context.read<TodoBloc>().add(
-        TodoEvent.addTodo(
-          title: _titleController.text.trim(),
-          description: _descriptionController.text.trim().isEmpty
-              ? null
-              : _descriptionController.text.trim(),
-        ),
-      );
-      Navigator.pop(context);
+      ref
+          .read(todoBlocProvider)
+          .add(
+            TodoEvent.addTodo(
+              title: _titleController.text.trim(),
+              description: _descriptionController.text.trim().isEmpty
+                  ? null
+                  : _descriptionController.text.trim(),
+            ),
+          );
+      context.pop();
     }
   }
 

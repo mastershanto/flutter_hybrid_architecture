@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import '../blocs/todo/todo_bloc.dart';
 import '../blocs/todo/todo_event.dart';
 import '../blocs/todo/todo_state.dart';
 import '../widgets/todo_tile.dart';
 import '../../di.dart';
-import 'add_todo_screen.dart';
+import '../../core/router/app_routes.dart';
 
 /// Home screen displaying the list of todos
 class HomeScreen extends ConsumerStatefulWidget {
@@ -75,16 +76,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           },
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () async {
-            await Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => BlocProvider.value(
-                  value: todoBloc,
-                  child: const AddTodoScreen(),
-                ),
-              ),
-            );
+          onPressed: () {
+            context.pushNamed(AppRoutes.addTodoName);
           },
           child: const Icon(Icons.add),
         ),

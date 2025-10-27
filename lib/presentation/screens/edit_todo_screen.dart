@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import '../blocs/todo/todo_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../blocs/todo/todo_event.dart';
 import '../../../domain/entities/todo.dart';
+import '../../di.dart';
 
 /// Screen for editing an existing todo
-class EditTodoScreen extends StatefulWidget {
+class EditTodoScreen extends ConsumerStatefulWidget {
   final Todo todo;
 
   const EditTodoScreen({super.key, required this.todo});
 
   @override
-  State<EditTodoScreen> createState() => _EditTodoScreenState();
+  ConsumerState<EditTodoScreen> createState() => _EditTodoScreenState();
 }
 
-class _EditTodoScreenState extends State<EditTodoScreen> {
+class _EditTodoScreenState extends ConsumerState<EditTodoScreen> {
   final _formKey = GlobalKey<FormState>();
   late final TextEditingController _titleController;
   late final TextEditingController _descriptionController;
@@ -37,16 +38,18 @@ class _EditTodoScreenState extends State<EditTodoScreen> {
 
   void _submitTodo() {
     if (_formKey.currentState!.validate()) {
-      context.read<TodoBloc>().add(
-        TodoEvent.updateTodo(
-          id: widget.todo.id,
-          title: _titleController.text.trim(),
-          description: _descriptionController.text.trim().isEmpty
-              ? null
-              : _descriptionController.text.trim(),
-        ),
-      );
-      Navigator.pop(context);
+      ref
+          .read(todoBlocProvider)
+          .add(
+            TodoEvent.updateTodo(
+              id: widget.todo.id,
+              title: _titleController.text.trim(),
+              description: _descriptionController.text.trim().isEmpty
+                  ? null
+                  : _descriptionController.text.trim(),
+            ),
+          );
+      context.pop();
     }
   }
 
