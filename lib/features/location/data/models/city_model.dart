@@ -6,6 +6,8 @@ part 'city_model.g.dart';
 
 @freezed
 class CityModel with _$CityModel {
+  const CityModel._();
+
   const factory CityModel({
     required int id,
     required String name,

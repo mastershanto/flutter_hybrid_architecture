@@ -6,6 +6,8 @@ part 'vehicle_color_model.g.dart';
 
 @freezed
 class VehicleColorModel with _$VehicleColorModel {
+  const VehicleColorModel._();
+
   const factory VehicleColorModel({
     required int id,
     required String name,

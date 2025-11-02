@@ -146,13 +146,13 @@ class __$$VehicleModelModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$VehicleModelModelImpl implements _VehicleModelModel {
+class _$VehicleModelModelImpl extends _VehicleModelModel {
   const _$VehicleModelModelImpl({
     required this.id,
     required this.name,
     this.brandId,
     this.categoryId,
-  });
+  }) : super._();
 
   factory _$VehicleModelModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$VehicleModelModelImplFromJson(json);
@@ -204,13 +204,14 @@ class _$VehicleModelModelImpl implements _VehicleModelModel {
   }
 }
 
-abstract class _VehicleModelModel implements VehicleModelModel {
+abstract class _VehicleModelModel extends VehicleModelModel {
   const factory _VehicleModelModel({
     required final int id,
     required final String name,
     final int? brandId,
     final int? categoryId,
   }) = _$VehicleModelModelImpl;
+  const _VehicleModelModel._() : super._();
 
   factory _VehicleModelModel.fromJson(Map<String, dynamic> json) =
       _$VehicleModelModelImpl.fromJson;

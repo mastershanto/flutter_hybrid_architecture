@@ -6,6 +6,8 @@ part 'vehicle_brand_model.g.dart';
 
 @freezed
 class VehicleBrandModel with _$VehicleBrandModel {
+  const VehicleBrandModel._();
+
   const factory VehicleBrandModel({
     required int id,
     required String name,
@@ -15,7 +17,7 @@ class VehicleBrandModel with _$VehicleBrandModel {
 
   factory VehicleBrandModel.fromJson(Map<String, dynamic> json) =>
       _$VehicleBrandModelFromJson(json);
-  
+
   VehicleBrand toEntity() => VehicleBrand(
     id: id,
     name: name,

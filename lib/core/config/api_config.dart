@@ -3,7 +3,7 @@ class ApiConfig {
   ApiConfig._();
 
   /// Base URL for the API
-  static const String baseUrl = 'https://www.automoto54.com/api';
+  static const String baseUrl = 'http://dailhouc.dashboard.softvencefsd.xyz/api';
 
   /// Auth Endpoints
   static const String register = '/users/register';

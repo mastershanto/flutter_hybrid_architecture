@@ -14,7 +14,7 @@ import '../../features/product/presentation/screens/product_list_screen.dart';
 import '../../features/vehicle/presentation/bloc/vehicle_bloc.dart';
 import '../../features/vehicle/presentation/bloc/vehicle_event.dart';
 import '../../features/vehicle/presentation/screens/vehicle_categories_screen.dart';
-import '../presentation/main_navigation_screen.dart';
+import '../../features/todo/presentation/screens/home_screen.dart';
 import '../../features/auth/domain/repositories/auth_repository.dart';
 import '../di/injection.dart';
 import 'app_routes.dart';
@@ -25,6 +25,7 @@ class AppRouter {
 
   static final GoRouter router = GoRouter(
     initialLocation: AppRoutes.splash,
+    // initialLocation: AppRoutes.home,
     debugLogDiagnostics: true,
     redirect: (context, state) async {
       // Get auth repository to check login status
@@ -124,7 +125,7 @@ class AppRouter {
         name: AppRoutes.homeName,
         pageBuilder: (context, state) => MaterialPage(
           key: state.pageKey,
-          child: const MainNavigationScreen(),
+          child: const HomeScreen(),
         ),
       ),
 

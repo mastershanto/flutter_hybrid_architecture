@@ -6,6 +6,8 @@ part 'vehicle_submodel_model.g.dart';
 
 @freezed
 class VehicleSubModelModel with _$VehicleSubModelModel {
+  const VehicleSubModelModel._();
+
   const factory VehicleSubModelModel({
     required int id,
     required String name,
