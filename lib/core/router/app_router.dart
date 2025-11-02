@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../presentation/screens/home_screen.dart';
-import '../../presentation/screens/add_todo_screen.dart';
-import '../../presentation/screens/edit_todo_screen.dart';
-import '../../domain/entities/todo.dart';
+import '../../features/todo/presentation/screens/home_screen.dart';
+import '../../features/todo/presentation/screens/add_todo_screen.dart';
+import '../../features/todo/presentation/screens/edit_todo_screen.dart';
+import '../../features/todo/domain/entities/todo.dart';
 import 'app_routes.dart';
 
 /// GoRouter configuration for the app
