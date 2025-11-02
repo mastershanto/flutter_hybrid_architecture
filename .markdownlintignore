@@ -1,0 +1,17 @@
+# Markdownlint ignore file
+# Ignore certain files or patterns from markdown linting
+
+# Generated documentation
+CHANGELOG.md
+ZERO_WARNINGS_CONFIG.md
+coverage/
+build/
+
+# Third-party documentation
+node_modules/
+.dart_tool/
+
+# Ignore auto-generated files
+*.g.dart
+*.freezed.dart
+*.mocks.dart

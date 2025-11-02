@@ -152,7 +152,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         onPressed: isLoading
                             ? null
                             : () {
-                                // TODO: Implement forgot password
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
                                     content: Text(
