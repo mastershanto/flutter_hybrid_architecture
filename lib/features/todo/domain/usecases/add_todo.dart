@@ -1,3 +1,5 @@
+import 'package:dartz/dartz.dart';
+import '../../../../core/error/failures.dart';
 import '../entities/todo.dart';
 import '../repositories/todo_repository.dart';
 
@@ -7,7 +9,7 @@ class AddTodo {
 
   AddTodo(this.repository);
 
-  Future<void> call(Todo todo) async {
+  Future<Either<Failure, void>> call(Todo todo) async {
     return await repository.add(todo);
   }
 }

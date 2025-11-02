@@ -9,7 +9,6 @@ import '../widgets/todo_tile.dart';
 import '../../../../core/di/injection.dart';
 import '../../../../core/router/app_routes.dart';
 import '../../../auth/presentation/bloc/auth/auth_bloc.dart';
-import '../../../auth/presentation/bloc/auth/auth_event.dart';
 import '../../../auth/presentation/bloc/auth/auth_state.dart';
 
 /// Home screen displaying the list of todos
@@ -28,10 +27,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     Future.microtask(() {
       ref.read(todoBlocProvider).add(const TodoEvent.loadTodos());
     });
-  }
-
-  void _handleLogout() {
-    ref.read(authBlocProvider).add(const AuthEvent.logout());
   }
 
   @override
@@ -62,9 +57,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             backgroundColor: Theme.of(context).colorScheme.inversePrimary,
             actions: [
               IconButton(
-                icon: const Icon(Icons.logout),
-                tooltip: 'Logout',
-                onPressed: _handleLogout,
+                icon: const Icon(Icons.person),
+                tooltip: 'Profile',
+                onPressed: () => context.push(AppRoutes.profile),
               ),
             ],
           ),

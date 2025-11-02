@@ -52,6 +52,11 @@ class TodoDatabase extends _$TodoDatabase {
       );
     }
   }
+
+  /// Upsert (insert or update) a todo
+  Future<void> upsertTodo(TodosCompanion todo) async {
+    await into(todos).insertOnConflictUpdate(todo);
+  }
 }
 
 LazyDatabase _openConnection() {

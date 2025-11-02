@@ -18,6 +18,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  bool _obscurePassword = true;
+  bool _rememberMe = false;
 
   @override
   void dispose() {
@@ -102,11 +104,23 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   const SizedBox(height: 16),
                   TextFormField(
                     controller: _passwordController,
-                    obscureText: true,
-                    decoration: const InputDecoration(
+                    obscureText: _obscurePassword,
+                    decoration: InputDecoration(
                       labelText: 'Password',
-                      border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.lock),
+                      border: const OutlineInputBorder(),
+                      prefixIcon: const Icon(Icons.lock),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _obscurePassword
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _obscurePassword = !_obscurePassword;
+                          });
+                        },
+                      ),
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -119,7 +133,39 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     },
                     enabled: !isLoading,
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: _rememberMe,
+                        onChanged: isLoading
+                            ? null
+                            : (value) {
+                                setState(() {
+                                  _rememberMe = value ?? false;
+                                });
+                              },
+                      ),
+                      const Text('Remember me'),
+                      const Spacer(),
+                      TextButton(
+                        onPressed: isLoading
+                            ? null
+                            : () {
+                                // TODO: Implement forgot password
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text(
+                                      'Forgot password feature coming soon!',
+                                    ),
+                                  ),
+                                );
+                              },
+                        child: const Text('Forgot Password?'),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: isLoading ? null : _handleLogin,
                     style: ElevatedButton.styleFrom(

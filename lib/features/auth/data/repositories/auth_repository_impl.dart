@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:logger/logger.dart';
 import '../../../../core/error/exceptions.dart';
 import '../../../../core/error/failures.dart';
 import '../../../../core/network/network_info.dart';
@@ -7,6 +8,8 @@ import '../../domain/repositories/auth_repository.dart';
 import '../datasources/auth_local_data_source.dart';
 import '../datasources/auth_remote_data_source.dart';
 import '../models/user_model.dart';
+
+final logger = Logger();
 
 /// Implementation of authentication repository
 class AuthRepositoryImpl implements AuthRepository {
@@ -36,12 +39,14 @@ class AuthRepositoryImpl implements AuthRepository {
         // Save user locally
         await localDataSource.saveUser(userModel.toEntity().toCompanion());
 
-        print('✅ Login successful: ${userModel.email}');
+        logger.i('Login successful: ${userModel.email}');
         return Right(userModel.toEntity());
-      } on ServerException {
-        return Left(ServerFailure());
+      } on ServerException catch (e) {
+        logger.e('Login failed: ${e.message}');
+        return Left(ServerFailure(e.message));
       }
     } else {
+      logger.w('Login failed: No internet connection');
       return Left(NetworkFailure());
     }
   }
@@ -64,12 +69,14 @@ class AuthRepositoryImpl implements AuthRepository {
         // Save user locally
         await localDataSource.saveUser(userModel.toEntity().toCompanion());
 
-        print('✅ Sign up successful: ${userModel.email}');
+        logger.i('Sign up successful: ${userModel.email}');
         return Right(userModel.toEntity());
-      } on ServerException {
-        return Left(ServerFailure());
+      } on ServerException catch (e) {
+        logger.e('Sign up failed: ${e.message}');
+        return Left(ServerFailure(e.message));
       }
     } else {
+      logger.w('Sign up failed: No internet connection');
       return Left(NetworkFailure());
     }
   }
@@ -85,10 +92,14 @@ class AuthRepositoryImpl implements AuthRepository {
       // Clear local user data
       await localDataSource.deleteUser();
 
-      print('✅ Logout successful');
+      logger.i('Logout successful');
       return const Right(null);
+    } on CacheException catch (e) {
+      logger.e('Logout failed: ${e.message}');
+      return Left(CacheFailure(e.message));
     } catch (e) {
-      return Left(CacheFailure());
+      logger.e('Unexpected logout error: $e');
+      return Left(GeneralFailure(e.toString()));
     }
   }
 
@@ -100,17 +111,26 @@ class AuthRepositoryImpl implements AuthRepository {
         return const Right(null);
       }
       return Right(driftUser.toEntity());
+    } on CacheException catch (e) {
+      logger.e('Failed to get current user: ${e.message}');
+      return Left(CacheFailure(e.message));
     } catch (e) {
-      return Left(CacheFailure());
+      logger.e('Unexpected error getting current user: $e');
+      return Left(GeneralFailure(e.toString()));
     }
   }
 
   @override
-  Future<bool> isLoggedIn() async {
+  Future<Either<Failure, bool>> isLoggedIn() async {
     try {
-      return await localDataSource.hasUser();
+      final hasUser = await localDataSource.hasUser();
+      return Right(hasUser);
+    } on CacheException catch (e) {
+      logger.e('Failed to check login status: ${e.message}');
+      return Left(CacheFailure(e.message));
     } catch (e) {
-      return false;
+      logger.e('Unexpected error checking login status: $e');
+      return Left(GeneralFailure(e.toString()));
     }
   }
 }

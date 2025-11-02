@@ -18,78 +18,73 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
   }
 
   Future<void> _onLoadTodos(LoadTodos event, Emitter<TodoState> emit) async {
-    try {
-      emit(const TodoState.loading());
-      final todos = await repository.getTodos();
-      emit(TodoState.loaded(todos: todos));
-    } catch (e) {
-      emit(TodoState.error(message: e.toString()));
-    }
+    emit(const TodoState.loading());
+    final result = await repository.getTodos();
+    result.fold(
+      (failure) => emit(TodoState.error(message: failure.message)),
+      (todos) => emit(TodoState.loaded(todos: todos)),
+    );
   }
 
   Future<void> _onAddTodo(AddTodo event, Emitter<TodoState> emit) async {
-    try {
-      final current = state.maybeWhen(
-        loaded: (todos) => todos,
-        orElse: () => <Todo>[],
-      );
+    final current = state.maybeWhen(
+      loaded: (todos) => todos,
+      orElse: () => <Todo>[],
+    );
 
-      final todo = Todo(
-        id: const Uuid().v4(),
-        title: event.title,
-        description: event.description,
-        createdAt: DateTime.now(),
-      );
+    final todo = Todo(
+      id: const Uuid().v4(),
+      title: event.title,
+      description: event.description,
+      createdAt: DateTime.now(),
+    );
 
-      await repository.add(todo);
-      emit(TodoState.loaded(todos: [...current, todo]));
-    } catch (e) {
-      emit(TodoState.error(message: e.toString()));
-    }
+    final result = await repository.add(todo);
+    result.fold(
+      (failure) => emit(TodoState.error(message: failure.message)),
+      (_) => emit(TodoState.loaded(todos: [...current, todo])),
+    );
   }
 
   Future<void> _onDeleteTodo(DeleteTodo event, Emitter<TodoState> emit) async {
-    try {
-      await repository.delete(event.id);
+    final result = await repository.delete(event.id);
 
+    result.fold((failure) => emit(TodoState.error(message: failure.message)), (
+      _,
+    ) {
       final current = state.maybeWhen(
         loaded: (todos) => todos,
         orElse: () => <Todo>[],
       );
-
       final updated = current.where((t) => t.id != event.id).toList();
       emit(TodoState.loaded(todos: updated));
-    } catch (e) {
-      emit(TodoState.error(message: e.toString()));
-    }
+    });
   }
 
   Future<void> _onToggleTodo(ToggleTodo event, Emitter<TodoState> emit) async {
-    try {
-      await repository.toggle(event.id);
-      add(const TodoEvent.loadTodos());
-    } catch (e) {
-      emit(TodoState.error(message: e.toString()));
-    }
+    final result = await repository.toggle(event.id);
+    result.fold(
+      (failure) => emit(TodoState.error(message: failure.message)),
+      (_) => add(const TodoEvent.loadTodos()),
+    );
   }
 
   Future<void> _onUpdateTodo(UpdateTodo event, Emitter<TodoState> emit) async {
-    try {
-      final current = state.maybeWhen(
-        loaded: (todos) => todos,
-        orElse: () => <Todo>[],
-      );
+    final current = state.maybeWhen(
+      loaded: (todos) => todos,
+      orElse: () => <Todo>[],
+    );
 
-      final todoToUpdate = current.firstWhere((t) => t.id == event.id);
-      final updatedTodo = todoToUpdate.copyWith(
-        title: event.title,
-        description: event.description,
-      );
+    final todoToUpdate = current.firstWhere((t) => t.id == event.id);
+    final updatedTodo = todoToUpdate.copyWith(
+      title: event.title,
+      description: event.description,
+    );
 
-      await repository.update(updatedTodo);
-      add(const TodoEvent.loadTodos());
-    } catch (e) {
-      emit(TodoState.error(message: e.toString()));
-    }
+    final result = await repository.update(updatedTodo);
+    result.fold(
+      (failure) => emit(TodoState.error(message: failure.message)),
+      (_) => add(const TodoEvent.loadTodos()),
+    );
   }
 }

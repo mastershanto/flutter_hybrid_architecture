@@ -24,5 +24,5 @@ abstract class AuthRepository {
   Future<Either<Failure, User?>> getCurrentUser();
 
   /// Check if user is logged in
-  Future<bool> isLoggedIn();
+  Future<Either<Failure, bool>> isLoggedIn();
 }
