@@ -12,7 +12,20 @@ class Users extends Table {
   TextColumn get email => text()();
   TextColumn get name => text()();
   TextColumn get token => text().nullable()();
+  TextColumn get avatar => text().nullable()();
+  TextColumn get code => text().nullable()();
+  TextColumn get phone => text().nullable()();
+  TextColumn get whatsapp => text().nullable()();
+  IntColumn get countryId => integer().nullable()();
+  TextColumn get countryName => text().nullable()();
+  IntColumn get cityId => integer().nullable()();
+  TextColumn get cityName => text().nullable()();
+  TextColumn get postalCode => text().nullable()();
+  TextColumn get streetAddress => text().nullable()();
+  BoolColumn get emailVerified =>
+      boolean().withDefault(const Constant(false))();
   DateTimeColumn get createdAt => dateTime()();
+  DateTimeColumn get updatedAt => dateTime().nullable()();
 
   @override
   Set<Column> get primaryKey => {id};
@@ -24,7 +37,33 @@ class AuthDatabase extends _$AuthDatabase {
   AuthDatabase() : super(_openConnection());
 
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2;
+
+  @override
+  MigrationStrategy get migration {
+    return MigrationStrategy(
+      onCreate: (Migrator m) async {
+        await m.createAll();
+      },
+      onUpgrade: (Migrator m, int from, int to) async {
+        if (from < 2) {
+          // Add new columns for version 2
+          await m.addColumn(users, users.avatar as GeneratedColumn);
+          await m.addColumn(users, users.code as GeneratedColumn);
+          await m.addColumn(users, users.phone as GeneratedColumn);
+          await m.addColumn(users, users.whatsapp as GeneratedColumn);
+          await m.addColumn(users, users.countryId as GeneratedColumn);
+          await m.addColumn(users, users.countryName as GeneratedColumn);
+          await m.addColumn(users, users.cityId as GeneratedColumn);
+          await m.addColumn(users, users.cityName as GeneratedColumn);
+          await m.addColumn(users, users.postalCode as GeneratedColumn);
+          await m.addColumn(users, users.streetAddress as GeneratedColumn);
+          await m.addColumn(users, users.emailVerified as GeneratedColumn);
+          await m.addColumn(users, users.updatedAt as GeneratedColumn);
+        }
+      },
+    );
+  }
 
   /// Get current user (only one user stored locally)
   Future<User?> getCurrentUser() async {

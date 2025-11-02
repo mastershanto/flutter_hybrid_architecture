@@ -1,0 +1,3160 @@
+{
+	"info": {
+		"_postman_id": "c63d5e24-ae07-41f5-a11d-7741eca35571",
+		"name": "dailhouc",
+		"description": "### Welcome to Postman! This is your first collection.\n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests  \n• Test your API in real-world scenarios  \n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "45012326",
+		"_collection_link": "https://interstellar-star-269221.postman.co/workspace/Team-Workspace~f670882d-2d3f-4e59-8c7f-3f05cde19208/collection/45012326-c63d5e24-ae07-41f5-a11d-7741eca35571?action=share&source=collection_link&creator=45012326"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"item": [
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "himel8381.softvence@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "agree_to_terms",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "the man",
+											"type": "text"
+										},
+										{
+											"key": "avatar",
+											"description": "optional",
+											"type": "file",
+											"src": "/C:/Users/Softvence/Downloads/490595367_2150891565362187_6963020677449421228_n.jpg"
+										},
+										{
+											"key": "code",
+											"value": "+880",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "01961690927",
+											"type": "text"
+										},
+										{
+											"key": "whatsapp",
+											"value": "01961690927",
+											"type": "text"
+										},
+										{
+											"key": "country_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "city_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "postal_code",
+											"value": "5279",
+											"type": "text"
+										},
+										{
+											"key": "street_address",
+											"value": "Banani 12,Dhaka",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{base_url}}/users/register"
+							},
+							"response": []
+						},
+						{
+							"name": "Verify otp",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "otp",
+											"value": "7975",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "user098@user.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{base_url}}/users/register/otp-verify"
+							},
+							"response": []
+						},
+						{
+							"name": "Resend Otp",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "hasibulislam8381@gmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/users/register/otp-resend?",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"register",
+										"otp-resend"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"item": [
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "user@user.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{base_url}}/users/login"
+							},
+							"response": []
+						},
+						{
+							"name": "Verify Email",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "himel@user.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456789",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": "{{base_url}}/users/login/email-verify"
+							},
+							"response": []
+						},
+						{
+							"name": "Otp Resend",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "hasibulislam8381@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456789",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": "{{base_url}}/users/login/otp-resend"
+							},
+							"response": []
+						},
+						{
+							"name": "Verify Otp",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "hasibulislam8381@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "otp",
+											"value": "9999",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{base_url}}/users/login/otp-verify"
+							},
+							"response": []
+						},
+						{
+							"name": "Reset Password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "himel@user.com",
+											"type": "text"
+										},
+										{
+											"key": "otp",
+											"value": "9999",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "12345678",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{base_url}}/users/login/reset-password"
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "manx734@gmail.com",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "1234567890",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "admin@admin.com",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "premium@premium.com",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": "{{base_url}}/user/logout"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "System settings",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/site-settings"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SocialMedia",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/social-links"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Device Token",
+					"item": [
+						{
+							"name": "addDeviceToken",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/firebase/update-token?device_id=34&token=dfdgfdghf11gfdg4343dsds",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"firebase",
+										"update-token"
+									],
+									"query": [
+										{
+											"key": "device_id",
+											"value": "34"
+										},
+										{
+											"key": "token",
+											"value": "dfdgfdghf11gfdg4343dsds"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteToken",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/firebase/delete-token?device_id=34",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"firebase",
+										"delete-token"
+									],
+									"query": [
+										{
+											"key": "device_id",
+											"value": "34"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "testNotifications",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{base_url}}/firebase/test-notification"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "userDetails",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/user"
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Rabbani",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "code",
+									"value": "+88",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01961690927",
+									"type": "text"
+								},
+								{
+									"key": "whatsapp",
+									"value": "01761833681",
+									"type": "text"
+								},
+								{
+									"key": "country_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "city_id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "postal_code",
+									"value": "435",
+									"type": "text"
+								},
+								{
+									"key": "street_address",
+									"value": "Dhaka",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{base_url}}/user/update"
+					},
+					"response": []
+				},
+				{
+					"name": "updatePassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "old_password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "new_password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "new_password_confirmation",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{base_url}}/user/update-password"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteAccount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/user/delete-account?password=12345678",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"delete-account"
+							],
+							"query": [
+								{
+									"key": "password",
+									"value": "12345678"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Location",
+			"item": [
+				{
+					"name": "getCountries",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Rabbani",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "phone",
+									"value": "01961690927",
+									"type": "text"
+								},
+								{
+									"key": "whatsapp",
+									"value": "01761833681",
+									"type": "text"
+								},
+								{
+									"key": "country_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "city_id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "postal_code",
+									"value": "435",
+									"type": "text"
+								},
+								{
+									"key": "street_address",
+									"value": "Dhaka",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{base_url}}/location/countries"
+					},
+					"response": []
+				},
+				{
+					"name": "getcities",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}/location/cities?country_id=2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"location",
+								"cities"
+							],
+							"query": [
+								{
+									"key": "country_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicle",
+			"item": [
+				{
+					"name": "Categories",
+					"item": [
+						{
+							"name": "getCategories",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{base_url}}/vehicle/categories"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Brand",
+					"item": [
+						{
+							"name": "getBrandByCategory",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/vehicle/brands?category_id=3",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"vehicle",
+										"brands"
+									],
+									"query": [
+										{
+											"key": "category_id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Model",
+					"item": [
+						{
+							"name": "getModelsByBrand",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/vehicle/models?brand_id=1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"vehicle",
+										"models"
+									],
+									"query": [
+										{
+											"key": "brand_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Sub Model",
+					"item": [
+						{
+							"name": "getSubModelsByModel",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/vehicle/submodels?car_model_id=3",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"vehicle",
+										"submodels"
+									],
+									"query": [
+										{
+											"key": "car_model_id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Vehicle Details Data",
+					"item": [
+						{
+							"name": "getVehicleConditions",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/vehicle/vehicle-conditions"
+							},
+							"response": []
+						},
+						{
+							"name": "getBodyColor",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/vehicle/vehicle-body-color"
+							},
+							"response": []
+						},
+						{
+							"name": "getUphostery",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/vehicle/vehicle-upholstery"
+							},
+							"response": []
+						},
+						{
+							"name": "getInteriorColor",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/vehicle/vehicle-interior-colors"
+							},
+							"response": []
+						},
+						{
+							"name": "getPreviousOwner",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/vehicle/previour-owner"
+							},
+							"response": []
+						},
+						{
+							"name": "getNumOfDoors",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/vehicle/number-of-doors"
+							},
+							"response": []
+						},
+						{
+							"name": "getNumOfSeats",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/vehicle/number-of-seats"
+							},
+							"response": []
+						},
+						{
+							"name": "getBedCount",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/vehicle/bed-count"
+							},
+							"response": []
+						},
+						{
+							"name": "getBedTypes",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/vehicle/bed-types"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Engine And Environment",
+					"item": [
+						{
+							"name": "getDriverType",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/vehicle/driver-types"
+							},
+							"response": []
+						},
+						{
+							"name": "getTransmission",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/vehicle/transmission"
+							},
+							"response": []
+						},
+						{
+							"name": "getNumOfGears",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/vehicle/no-of-gears"
+							},
+							"response": []
+						},
+						{
+							"name": "getNumOfCylinders",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/vehicle/cylinders"
+							},
+							"response": []
+						},
+						{
+							"name": "getAxleCount",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/vehicle/axle-count"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Fuel",
+					"item": [
+						{
+							"name": "getFuelTypes",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{base_url}}/vehicle/fuel-types"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Equipment",
+					"item": [
+						{
+							"name": "getEquipment",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/vehicle/equipment",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"vehicle",
+										"equipment"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "blu",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Emission Class",
+					"item": [
+						{
+							"name": "getEmissionClasses",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/vehicle/emission-classes"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Body Types",
+					"item": [
+						{
+							"name": "getBodyTypes",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{base_url}}/vehicle/body-types?category_id=1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"vehicle",
+										"body-types"
+									],
+									"query": [
+										{
+											"key": "category_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Power",
+					"item": [
+						{
+							"name": "getPower",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/vehicle/power"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Equipment Line",
+					"item": [
+						{
+							"name": "getEquipmentLine",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/vehicle/equipment-line"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Seller Types",
+					"item": [
+						{
+							"name": "getSellerTypes",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/vehicle/seller-types"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ModelSubmodel",
+					"item": [
+						{
+							"name": "modelSubmodel",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Rabbani",
+											"type": "text"
+										},
+										{
+											"key": "avatar",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "code",
+											"value": "+88",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "01961690927",
+											"type": "text"
+										},
+										{
+											"key": "whatsapp",
+											"value": "01761833681",
+											"type": "text"
+										},
+										{
+											"key": "country_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "city_id",
+											"value": "4",
+											"type": "text"
+										},
+										{
+											"key": "postal_code",
+											"value": "435",
+											"type": "text"
+										},
+										{
+											"key": "street_address",
+											"value": "Dhaka",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/vehicle/models-submodel?brand_id=1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"vehicle",
+										"models-submodel"
+									],
+									"query": [
+										{
+											"key": "brand_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "StoreVehicleData",
+			"item": [
+				{
+					"name": "StoreVehicleData",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "brand_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "model_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "sub_model_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "first_registration",
+									"value": "2021-05-15",
+									"type": "text"
+								},
+								{
+									"key": "body_type_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "fuel_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "transmission_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "power_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "equipment_line_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "seller_type_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "photos[]",
+									"type": "file",
+									"src": [
+										"/C:/Users/Softvence/Downloads/photo_2025-10-04_16-13-16.jpg",
+										"/C:/Users/Softvence/Downloads/laliga.png",
+										"/C:/Users/Softvence/Downloads/getafe.png"
+									]
+								},
+								{
+									"key": "price",
+									"value": "10000",
+									"type": "text"
+								},
+								{
+									"key": "milage",
+									"value": "42",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "good car",
+									"type": "text"
+								},
+								{
+									"key": "equipment_ids[]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "equipment_ids[]",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "vehicle_conditions_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "body_color_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "upholstery_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "interior_color_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "previous_owner_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "num_of_door_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "num_of_seats_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "metalic",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "negotiable",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "indicate_vat",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "driver_type_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "transmission_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "num_of_gears_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "cylinders_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "emission_classes_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "engine_size",
+									"value": "200",
+									"type": "text"
+								},
+								{
+									"key": "kerb_weight",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "fuel_consumption_urban",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "fuel_consumption_combined",
+									"value": "50",
+									"type": "text"
+								},
+								{
+									"key": "fuel_consumption_combined_gm",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "co2_emissions",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "catalytic_converter",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "particle_filter",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "service_history",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "non_smoker_car",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "damaged_vehicle",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "guarantee",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "recent_change_of_timing_belt",
+									"value": "2021-05-24",
+									"type": "text"
+								},
+								{
+									"key": "recent_technical_service",
+									"value": "2023-05-12",
+									"type": "text"
+								},
+								{
+									"key": "technical_inspection_valid_until",
+									"value": "2024-05-11",
+									"type": "text"
+								},
+								{
+									"key": "featured_request",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "shefali",
+									"description": "user name(Email and Phone number will be required)",
+									"type": "text"
+								},
+								{
+									"key": "whatsapp_number",
+									"value": "01761833681",
+									"type": "text"
+								},
+								{
+									"key": "country_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "city_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "postal_code",
+									"value": "5209",
+									"type": "text"
+								},
+								{
+									"key": "street_details",
+									"value": "dhaka",
+									"type": "text"
+								},
+								{
+									"key": "lat",
+									"value": "23.7",
+									"type": "text"
+								},
+								{
+									"key": "lng",
+									"value": "90.4",
+									"type": "text"
+								},
+								{
+									"key": "indicate_vat",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "bed_count_id",
+									"value": "1",
+									"description": "for caravan/transporter",
+									"type": "text"
+								},
+								{
+									"key": "bed_type_id[]",
+									"value": "2",
+									"description": "for caravan/transporter",
+									"type": "text"
+								},
+								{
+									"key": "bed_type_id[]",
+									"value": "4",
+									"description": "for caravan/transporter",
+									"type": "text"
+								},
+								{
+									"key": "axle_count_id",
+									"value": "2",
+									"description": "for caravan/transporter",
+									"type": "text"
+								},
+								{
+									"key": "perm_gvw",
+									"value": "3500kg",
+									"description": "for caravan/transporter",
+									"type": "text"
+								},
+								{
+									"key": "is_email_show",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "is_number_show",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "is_whatsapp_show",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "whatsapp_country_code",
+									"value": "088",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/Softvence/Downloads/photo_2025-10-23_14-40-25.jpg"
+								}
+							]
+						},
+						"url": "{{base_url}}/vehicle/store"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GetUsersVehicle",
+			"item": [
+				{
+					"name": "getUsersVehicle",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/vehicle/get-users-vehicle"
+					},
+					"response": []
+				},
+				{
+					"name": "vehicle_details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/vehicle/vehicle-details?vehicle_id=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"vehicle",
+								"vehicle-details"
+							],
+							"query": [
+								{
+									"key": "vehicle_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "allVehicles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/vehicle/get-all-vehicle"
+					},
+					"response": []
+				},
+				{
+					"name": "getFeaturedVehicles",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "brand_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "model_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "sub_model_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "first_registration",
+									"value": "2021-05-15",
+									"type": "text"
+								},
+								{
+									"key": "body_type_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "fuel_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "transmission_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "power_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "equipment_line_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "seller_type_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "photos[]",
+									"type": "file",
+									"src": [
+										"/C:/Users/Softvence/Downloads/photo_2025-10-04_16-13-16.jpg",
+										"/C:/Users/Softvence/Downloads/laliga.png",
+										"/C:/Users/Softvence/Downloads/getafe.png"
+									]
+								},
+								{
+									"key": "price",
+									"value": "10000",
+									"type": "text"
+								},
+								{
+									"key": "milage",
+									"value": "42",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "good car",
+									"type": "text"
+								},
+								{
+									"key": "equipment_ids[]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "equipment_ids[]",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "vehicle_conditions_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "body_color_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "upholstery_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "interior_color_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "previous_owner_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "num_of_door_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "num_of_seats_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "metalic",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "negotiable",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "indicate_vat",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "driver_type_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "transmission_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "num_of_gears_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "cylinders_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "emission_classes_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "engine_size",
+									"value": "200",
+									"type": "text"
+								},
+								{
+									"key": "kerb_weight",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "fuel_consumption_urban",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "fuel_consumption_combined",
+									"value": "50",
+									"type": "text"
+								},
+								{
+									"key": "fuel_consumption_combined_gm",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "co2_emissions",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "catalytic_converter",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "particle_filter",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "service_history",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "non_smoker_car",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "damaged_vehicle",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "guarantee",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "recent_change_of_timing_belt",
+									"value": "2021-05-24",
+									"type": "text"
+								},
+								{
+									"key": "recent_technical_service",
+									"value": "2023-05-12",
+									"type": "text"
+								},
+								{
+									"key": "technical_inspection_valid_until",
+									"value": "2024-05-11",
+									"type": "text"
+								},
+								{
+									"key": "featured_request",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "shefali",
+									"description": "user name(Email and Phone number will be required)",
+									"type": "text"
+								},
+								{
+									"key": "whatsapp_number",
+									"value": "01761833681",
+									"type": "text"
+								},
+								{
+									"key": "country_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "city_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "postal_code",
+									"value": "5209",
+									"type": "text"
+								},
+								{
+									"key": "street_details",
+									"value": "dhaka",
+									"type": "text"
+								},
+								{
+									"key": "lat",
+									"value": "23.7",
+									"type": "text"
+								},
+								{
+									"key": "lng",
+									"value": "90.4",
+									"type": "text"
+								},
+								{
+									"key": "indicate_vat",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "bed_count_id",
+									"value": "1",
+									"description": "for caravan/transporter",
+									"type": "text"
+								},
+								{
+									"key": "bed_type_id[]",
+									"value": "2",
+									"description": "for caravan/transporter",
+									"type": "text"
+								},
+								{
+									"key": "bed_type_id[]",
+									"value": "4",
+									"description": "for caravan/transporter",
+									"type": "text"
+								},
+								{
+									"key": "axle_count_id",
+									"value": "2",
+									"description": "for caravan/transporter",
+									"type": "text"
+								},
+								{
+									"key": "perm_gvw",
+									"value": "3500kg",
+									"description": "for caravan/transporter",
+									"type": "text"
+								},
+								{
+									"key": "is_email_show",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "is_number_show",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "is_whatsapp_show",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "whatsapp_country_code",
+									"value": "088",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/Softvence/Downloads/photo_2025-10-23_14-40-25.jpg"
+								}
+							]
+						},
+						"url": "{{base_url}}/vehicle/featured"
+					},
+					"response": []
+				},
+				{
+					"name": "getPendingAndAllVehicle",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/vehicle/get-pending-and-all"
+					},
+					"response": []
+				},
+				{
+					"name": "getVehicleByUserId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/vehicle/get-vehicle-by-userId?user_id=2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"vehicle",
+								"get-vehicle-by-userId"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SearchVehicle",
+			"item": [
+				{
+					"name": "SearchVehicle",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/vehicle/search?category_id=3&brand_id=2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"vehicle",
+								"search"
+							],
+							"query": [
+								{
+									"key": "category_id",
+									"value": "3"
+								},
+								{
+									"key": "brand_id",
+									"value": "2"
+								},
+								{
+									"key": "model_id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "sub_model_id",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "lat",
+									"value": "23.7",
+									"disabled": true
+								},
+								{
+									"key": "lng",
+									"value": "90.4",
+									"disabled": true
+								},
+								{
+									"key": "budget_from",
+									"value": "200",
+									"disabled": true
+								},
+								{
+									"key": "budget_to",
+									"value": "3000",
+									"disabled": true
+								},
+								{
+									"key": "indicate_vat",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "vehicle_conditions_id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "first_registration_from",
+									"value": "2021-05-14",
+									"disabled": true
+								},
+								{
+									"key": "first_registration_to",
+									"value": "2021-05-15",
+									"disabled": true
+								},
+								{
+									"key": "mileage_from",
+									"value": "40",
+									"disabled": true
+								},
+								{
+									"key": "mileage_to",
+									"value": "50",
+									"disabled": true
+								},
+								{
+									"key": "door_count_from",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "door_count_to",
+									"value": "6",
+									"disabled": true
+								},
+								{
+									"key": "number_of_seats_from",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "number_of_seats_to",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "body_type_id[]",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "fuel_id",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "transmission_id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "previous_owner_id",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "power_from",
+									"value": "20",
+									"disabled": true
+								},
+								{
+									"key": "power_to",
+									"value": "81",
+									"disabled": true
+								},
+								{
+									"key": "power_unit",
+									"value": "hp",
+									"disabled": true
+								},
+								{
+									"key": "service_history",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "damaged_vehicle",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "equipment_ids[]",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "equipment_ids[]",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "seller_type_id",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "guarantee",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "technical_inspection_valid_until",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "body_color_id[]",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "body_color_id[]",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "interior_color_id[]",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "interior_color_id[]",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "upholstery_id[]",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "upholstery_id[]",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "metalic",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "emission_classes_id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "catalytic_converter",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "particle_filter",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "posting_age",
+									"value": "2",
+									"description": "(pass how many days)",
+									"disabled": true
+								},
+								{
+									"key": "add_with_pictures",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "bed_count_from",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "bed_count_to",
+									"value": "6",
+									"disabled": true
+								},
+								{
+									"key": "bed_type_id[]",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "bed_type_id[]",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "bed_type_id[]",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "axle_count_id",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "perm_gvw",
+									"value": "3500",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "latestSearch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/vehicle/search/latest-search"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dynamic Page",
+			"item": [
+				{
+					"name": "getAllPages",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "category_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "brand_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "model_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "sub_model_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "first_registration",
+									"value": "2021-05-15",
+									"type": "text"
+								},
+								{
+									"key": "body_type_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "fuel_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "transmission_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "power_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "equipment_line_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "seller_type_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "photos[]",
+									"type": "file",
+									"src": [
+										"/C:/Users/Softvence/Downloads/laliga.png",
+										"/C:/Users/Softvence/Downloads/getafe.png",
+										"/C:/Users/Softvence/Downloads/barca.png"
+									]
+								},
+								{
+									"key": "price",
+									"value": "3000",
+									"type": "text"
+								},
+								{
+									"key": "milage",
+									"value": "42",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "good car",
+									"type": "text"
+								},
+								{
+									"key": "equipment_ids[]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "equipment_ids[]",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "vehicle_conditions_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "body_color_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "upholstery_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "interior_color_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "previous_owner_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "num_of_door_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "num_of_seats_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "metalic",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "negotiable",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "indicate_vat",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "driver_type_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "transmission_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "num_of_gears_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "cylinders_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "emission_classes_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "engine_size",
+									"value": "200",
+									"type": "text"
+								},
+								{
+									"key": "kerb_weight",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "fuel_consumption_urban",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "fuel_consumption_combined",
+									"value": "50",
+									"type": "text"
+								},
+								{
+									"key": "fuel_consumption_combined_gm",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "co2_emissions",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "catalytic_converter",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "particle_filter",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "service_history",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "non_smoker_car",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "damaged_vehicle",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "guarantee",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "recent_change_of_timing_belt",
+									"value": "2021-05-24",
+									"type": "text"
+								},
+								{
+									"key": "recent_technical_service",
+									"value": "2023-05-12",
+									"type": "text"
+								},
+								{
+									"key": "technical_inspection_valid_until",
+									"value": "2024-05-11",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{base_url}}/pages"
+					},
+					"response": []
+				},
+				{
+					"name": "getPageBySlug",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/pages/about-us"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Favorite Vehicle",
+			"item": [
+				{
+					"name": "storeFavorite",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/vehicle/favorite?vehicle_id=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"vehicle",
+								"favorite"
+							],
+							"query": [
+								{
+									"key": "vehicle_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getFavouriteVehicles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/vehicle/favorites"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notifications",
+			"item": [
+				{
+					"name": "userNotifications",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/notifications"
+					},
+					"response": []
+				},
+				{
+					"name": "userUnreadMessage",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/notifications/unread"
+					},
+					"response": []
+				},
+				{
+					"name": "markAsRead",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "{{base_url}}/notifications/9b03e76b-89fe-411c-b503-9c93618f0fff/read"
+					},
+					"response": []
+				},
+				{
+					"name": "markAllAsRead",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "{{base_url}}/notifications/read-all"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteNotification",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/notifications/delete?id=ea34bdeb-6eaa-470c-8f9c-93d5c1faf6e4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"notifications",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "ea34bdeb-6eaa-470c-8f9c-93d5c1faf6e4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chat",
+			"item": [
+				{
+					"name": "sendMessage",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "receiver_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "sender_id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "Hey sherni",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{base_url}}/message/send"
+					},
+					"response": []
+				},
+				{
+					"name": "getConversations",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "receiver_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "sender_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "Hey test user Ki khobor",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{base_url}}/conversations"
+					},
+					"response": []
+				},
+				{
+					"name": "getMessages",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "receiver_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "sender_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "Hey test user Ki khobor",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/chat/messages?conversation_id=1&receiver_id=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"chat",
+								"messages"
+							],
+							"query": [
+								{
+									"key": "conversation_id",
+									"value": "1"
+								},
+								{
+									"key": "receiver_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://himel-admin.test/api"
+		},
+		{
+			"key": "token",
+			"value": "15|gznuqRerR7Tw7Nl9K25lyohlGdNnzWUqWYvlb6LI70fd3106"
+		}
+	]
+}

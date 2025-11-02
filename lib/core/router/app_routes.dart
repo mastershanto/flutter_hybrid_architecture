@@ -8,6 +8,9 @@ class AppRoutes {
   static const String signUp = '/signup';
   static const String profile = '/profile';
   static const String home = '/';
+
+  static const String productList = '/products';
+  static const String vehicleCategories = '/vehicles/categories';
   static const String addTodo = '/add-todo';
   static const String editTodo = '/edit-todo';
 
@@ -17,6 +20,9 @@ class AppRoutes {
   static const String signUpName = 'signup';
   static const String profileName = 'profile';
   static const String homeName = 'home';
+
+  static const String productListName = 'products';
+  static const String vehicleCategoriesName = 'vehicle-categories';
   static const String addTodoName = 'add-todo';
   static const String editTodoName = 'edit-todo';
 }

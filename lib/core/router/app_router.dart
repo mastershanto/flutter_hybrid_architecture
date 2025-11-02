@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import '../../features/todo/presentation/screens/home_screen.dart';
 import '../../features/todo/presentation/screens/add_todo_screen.dart';
 import '../../features/todo/presentation/screens/edit_todo_screen.dart';
 import '../../features/todo/domain/entities/todo.dart';
@@ -10,6 +9,12 @@ import '../../features/auth/presentation/screens/signup_screen.dart';
 import '../../features/auth/presentation/screens/splash_screen.dart';
 import '../../features/auth/presentation/screens/profile_screen.dart';
 import '../../features/auth/presentation/bloc/auth/auth_bloc.dart';
+import '../../features/product/presentation/bloc/product_bloc.dart';
+import '../../features/product/presentation/screens/product_list_screen.dart';
+import '../../features/vehicle/presentation/bloc/vehicle_bloc.dart';
+import '../../features/vehicle/presentation/bloc/vehicle_event.dart';
+import '../../features/vehicle/presentation/screens/vehicle_categories_screen.dart';
+import '../presentation/main_navigation_screen.dart';
 import '../../features/auth/domain/repositories/auth_repository.dart';
 import '../di/injection.dart';
 import 'app_routes.dart';
@@ -117,8 +122,37 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.home,
         name: AppRoutes.homeName,
-        pageBuilder: (context, state) =>
-            MaterialPage(key: state.pageKey, child: const HomeScreen()),
+        pageBuilder: (context, state) => MaterialPage(
+          key: state.pageKey,
+          child: const MainNavigationScreen(),
+        ),
+      ),
+
+      // Product List route
+      GoRoute(
+        path: AppRoutes.productList,
+        name: AppRoutes.productListName,
+        pageBuilder: (context, state) => MaterialPage(
+          key: state.pageKey,
+          child: BlocProvider(
+            create: (context) => getIt<ProductBloc>()..add(LoadProducts()),
+            child: const ProductListScreen(),
+          ),
+        ),
+      ),
+
+      // Vehicle Categories route
+      GoRoute(
+        path: AppRoutes.vehicleCategories,
+        name: AppRoutes.vehicleCategoriesName,
+        pageBuilder: (context, state) => MaterialPage(
+          key: state.pageKey,
+          child: BlocProvider(
+            create: (context) =>
+                getIt<VehicleBloc>()..add(LoadVehicleCategories()),
+            child: const VehicleCategoriesScreen(),
+          ),
+        ),
       ),
 
       // Add Todo route

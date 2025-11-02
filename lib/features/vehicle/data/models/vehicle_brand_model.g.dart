@@ -1,0 +1,25 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'vehicle_brand_model.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$VehicleBrandModelImpl _$$VehicleBrandModelImplFromJson(
+  Map<String, dynamic> json,
+) => _$VehicleBrandModelImpl(
+  id: (json['id'] as num).toInt(),
+  name: json['name'] as String,
+  logoUrl: json['logoUrl'] as String?,
+  categoryId: (json['categoryId'] as num?)?.toInt(),
+);
+
+Map<String, dynamic> _$$VehicleBrandModelImplToJson(
+  _$VehicleBrandModelImpl instance,
+) => <String, dynamic>{
+  'id': instance.id,
+  'name': instance.name,
+  'logoUrl': instance.logoUrl,
+  'categoryId': instance.categoryId,
+};
