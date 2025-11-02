@@ -4,6 +4,8 @@ import '../../features/todo/presentation/screens/home_screen.dart';
 import '../../features/todo/presentation/screens/add_todo_screen.dart';
 import '../../features/todo/presentation/screens/edit_todo_screen.dart';
 import '../../features/todo/domain/entities/todo.dart';
+import '../../features/auth/presentation/screens/login_screen.dart';
+import '../../features/auth/presentation/screens/signup_screen.dart';
 import 'app_routes.dart';
 
 /// GoRouter configuration for the app
@@ -11,9 +13,25 @@ class AppRouter {
   AppRouter._();
 
   static final GoRouter router = GoRouter(
-    initialLocation: AppRoutes.home,
+    initialLocation: AppRoutes.login,
     debugLogDiagnostics: true,
     routes: [
+      // Login route
+      GoRoute(
+        path: AppRoutes.login,
+        name: AppRoutes.loginName,
+        pageBuilder: (context, state) =>
+            MaterialPage(key: state.pageKey, child: const LoginScreen()),
+      ),
+
+      // Sign Up route
+      GoRoute(
+        path: AppRoutes.signUp,
+        name: AppRoutes.signUpName,
+        pageBuilder: (context, state) =>
+            MaterialPage(key: state.pageKey, child: const SignUpScreen()),
+      ),
+
       // Home route
       GoRoute(
         path: AppRoutes.home,

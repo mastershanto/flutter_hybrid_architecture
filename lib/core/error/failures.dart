@@ -20,6 +20,11 @@ class ServerFailure extends Failure {
   const ServerFailure([super.message = 'Server failure occurred']);
 }
 
+/// Failure for network connectivity related errors
+class NetworkFailure extends Failure {
+  const NetworkFailure([super.message = 'No internet connection']);
+}
+
 /// Failure for validation errors
 class ValidationFailure extends Failure {
   const ValidationFailure([super.message = 'Validation failure occurred']);
