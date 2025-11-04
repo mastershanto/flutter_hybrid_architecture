@@ -9,18 +9,15 @@ class AppException implements Exception {
 
 /// Exception for cache-related errors
 class CacheException extends AppException {
-  const CacheException([String message = 'Cache exception occurred'])
-    : super(message);
+  const CacheException([super.message = 'Cache exception occurred']);
 }
 
 /// Exception for server-related errors
 class ServerException extends AppException {
-  const ServerException([String message = 'Server exception occurred'])
-    : super(message);
+  const ServerException([super.message = 'Server exception occurred']);
 }
 
 /// Exception for validation errors
 class ValidationException extends AppException {
-  const ValidationException([String message = 'Validation exception occurred'])
-    : super(message);
+  const ValidationException([super.message = 'Validation exception occurred']);
 }

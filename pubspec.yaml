@@ -48,14 +48,27 @@ dependencies:
   path_provider: ^2.1.5
   path: ^1.9.0
   
+  # Functional Programming
+  dartz: ^0.10.1
+  
+  # HTTP Client
+  dio: ^5.7.0
+  pretty_dio_logger: ^1.4.0
+  connectivity_plus: ^6.1.0
   
   # Code Generation
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
   
+  # Navigation
+  go_router: ^14.6.2
+  
   # Utilities
   uuid: ^4.5.1
   equatable: ^2.0.7
+  logger: ^2.5.0
+  flutter_dotenv: ^5.1.0
+  flutter_secure_storage: ^9.2.2
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +80,10 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+  
+  # Testing
+  mocktail: ^1.0.4
+  bloc_test: ^9.1.7
   
   # Code Generation
   build_runner: ^2.4.13

@@ -1,0 +1,17 @@
+# Security ignore patterns
+.env
+.env.local
+.env.production
+.env.development
+
+# Sensitive configuration
+**/secrets.json
+**/credentials.json
+**/*.pem
+**/*.key
+**/*.keystore
+**/*.jks
+
+# API keys and tokens
+**/api_keys.dart
+**/api_secrets.dart

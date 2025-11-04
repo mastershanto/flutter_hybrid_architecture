@@ -1,0 +1,25 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'vehicle_category.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$VehicleCategoryImpl _$$VehicleCategoryImplFromJson(
+  Map<String, dynamic> json,
+) => _$VehicleCategoryImpl(
+  id: (json['id'] as num).toInt(),
+  name: json['name'] as String,
+  description: json['description'] as String?,
+  imageUrl: json['imageUrl'] as String?,
+);
+
+Map<String, dynamic> _$$VehicleCategoryImplToJson(
+  _$VehicleCategoryImpl instance,
+) => <String, dynamic>{
+  'id': instance.id,
+  'name': instance.name,
+  'description': instance.description,
+  'imageUrl': instance.imageUrl,
+};
