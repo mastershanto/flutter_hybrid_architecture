@@ -24,19 +24,19 @@ class AppRouter {
   AppRouter._();
 
   static final GoRouter router = GoRouter(
-    initialLocation: AppRoutes.splash,
-    // initialLocation: AppRoutes.home,
+    // initialLocation: AppRoutes.splash,
+    initialLocation: AppRoutes.productList,
     debugLogDiagnostics: true,
     redirect: (context, state) async {
       // Get auth repository to check login status
       final authRepository = getIt<AuthRepository>();
-      final result = await authRepository.isLoggedIn();
+      // final result = await authRepository.isLoggedIn();
 
       // Default to not logged in if there's an error
-      final isLoggedIn = result.fold(
-        (failure) => false,
-        (loggedIn) => loggedIn,
-      );
+      // final isLoggedIn = result.fold(
+      //   (failure) => false,
+      //   (loggedIn) => loggedIn,
+      // );
 
       final isOnSplash = state.matchedLocation == AppRoutes.splash;
       final isOnAuth =
@@ -47,16 +47,16 @@ class AppRouter {
       if (isOnSplash) return null;
 
       // If logged in and trying to access auth pages, redirect to home
-      if (isLoggedIn && isOnAuth) {
-        return AppRoutes.home;
-      }
+      // if (isLoggedIn && isOnAuth) {
+      //   return AppRoutes.home;
+      // }
 
-      // If not logged in and trying to access protected pages, redirect to login
-      if (!isLoggedIn && !isOnAuth) {
-        return AppRoutes.login;
-      }
+      // // If not logged in and trying to access protected pages, redirect to login
+      // if (!isLoggedIn && !isOnAuth) {
+      //   return AppRoutes.login;
+      // }
 
-      return null;
+      // return null;
     },
     routes: [
       // Splash route
@@ -123,10 +123,8 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.home,
         name: AppRoutes.homeName,
-        pageBuilder: (context, state) => MaterialPage(
-          key: state.pageKey,
-          child: const HomeScreen(),
-        ),
+        pageBuilder: (context, state) =>
+            MaterialPage(key: state.pageKey, child: const HomeScreen()),
       ),
 
       // Product List route
